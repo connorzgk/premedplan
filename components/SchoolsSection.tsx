@@ -38,9 +38,20 @@ export default function SchoolsSection() {
       {/* Controls */}
       <div className="flex gap-[10px] mb-7 flex-wrap items-center">
         <div className="relative flex-1 min-w-[200px] max-w-[320px]">
-          <span className="absolute left-[11px] top-1/2 -translate-y-1/2 text-[15px] pointer-events-none select-none">
-            🔍
-          </span>
+          <svg
+            className="absolute left-[11px] top-1/2 -translate-y-1/2 pointer-events-none text-[#9ca3af]"
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
           <input
             type="text"
             placeholder="Search schools…"

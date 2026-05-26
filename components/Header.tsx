@@ -13,7 +13,7 @@ export default function Header() {
     >
       <div className="inline-flex items-center gap-[6px] bg-white/[0.12] border border-white/[0.22] rounded-[20px] px-[14px] py-[5px] text-[11px] font-bold tracking-[0.1em] uppercase mb-[18px]">
         <span className="badge-dot" />
-        2025–2026 Cycle
+        2026–2027 Cycle
       </div>
 
       <h1 className="font-extrabold tracking-[-0.025em] mb-3 leading-[1.15] text-[clamp(26px,5vw,44px)]">
