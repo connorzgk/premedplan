@@ -2,18 +2,23 @@
 
 import { useState } from 'react';
 
-const TABS = [
-  { label: 'School Requirements', active: true },
-  { label: 'GPA Calculator', active: false },
-  { label: 'Cost Calculator', active: false },
-  { label: 'Policy Change Tracker', active: false },
-  { label: 'Reference Letter Template', active: false },
-  { label: 'Free Resources', active: false },
-  { label: 'Application Timeline', active: false },
-  { label: 'Personal Story', active: false },
+const TAB_LABELS = [
+  'School Requirements',
+  'GPA Calculator',
+  'Cost Calculator',
+  'Policy Change Tracker',
+  'Reference Letter Template',
+  'Free Resources',
+  'Application Timeline',
+  'Personal Story',
 ];
 
-export default function Navbar() {
+interface NavbarProps {
+  activeTab: string;
+  onTabChange: (tab: string) => void;
+}
+
+export default function Navbar({ activeTab, onTabChange }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -25,19 +30,19 @@ export default function Navbar() {
       >
         {/* Desktop tabs */}
         <div className="hidden lg:flex items-center justify-between w-full max-w-[1320px]">
-          {TABS.map((tab) => (
-            <a
-              key={tab.label}
-              href="#"
-              className="text-[11px] lg:text-[12px] xl:text-[14px] font-medium text-white transition-colors duration-200 hover:text-[#7dd3fc] whitespace-nowrap"
+          {TAB_LABELS.map((label) => (
+            <button
+              key={label}
+              onClick={() => onTabChange(label)}
+              className="text-[11px] lg:text-[12px] xl:text-[14px] font-medium text-white transition-colors duration-200 hover:text-[#7dd3fc] whitespace-nowrap bg-transparent border-0 cursor-pointer p-0"
               style={
-                tab.active
+                activeTab === label
                   ? { borderBottom: '2px solid #7dd3fc', paddingBottom: '2px' }
                   : { borderBottom: '2px solid transparent', paddingBottom: '2px' }
               }
             >
-              {tab.label}
-            </a>
+              {label}
+            </button>
           ))}
         </div>
 
@@ -68,20 +73,19 @@ export default function Navbar() {
       {/* Mobile dropdown */}
       {isOpen && (
         <div className="lg:hidden bg-[#0f1f3d] border-t border-white/10">
-          {TABS.map((tab) => (
-            <a
-              key={tab.label}
-              href="#"
-              onClick={() => setIsOpen(false)}
-              className="flex items-center px-6 py-3 text-[14px] font-medium text-white hover:text-[#7dd3fc] hover:bg-[#264070] transition-colors duration-200"
+          {TAB_LABELS.map((label) => (
+            <button
+              key={label}
+              onClick={() => { onTabChange(label); setIsOpen(false); }}
+              className="flex items-center w-full px-6 py-3 text-[14px] font-medium text-white hover:text-[#7dd3fc] hover:bg-[#264070] transition-colors duration-200 text-left bg-transparent border-0 cursor-pointer"
               style={
-                tab.active
+                activeTab === label
                   ? { borderLeft: '3px solid #7dd3fc', paddingLeft: '21px' }
                   : { borderLeft: '3px solid transparent', paddingLeft: '21px' }
               }
             >
-              {tab.label}
-            </a>
+              {label}
+            </button>
           ))}
         </div>
       )}
