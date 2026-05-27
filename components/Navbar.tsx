@@ -9,8 +9,8 @@ const TABS = [
   { label: 'Policy Change Tracker', active: false },
   { label: 'Reference Letter Template', active: false },
   { label: 'Free Resources', active: false },
-  { label: 'Personal Story', active: false },
   { label: 'Application Timeline', active: false },
+  { label: 'Personal Story', active: false },
 ];
 
 export default function Navbar() {
@@ -24,12 +24,12 @@ export default function Navbar() {
         style={{ height: '44px' }}
       >
         {/* Desktop tabs */}
-        <div className="hidden md:flex items-center justify-between w-full max-w-[1320px]">
+        <div className="hidden lg:flex items-center justify-between w-full max-w-[1320px]">
           {TABS.map((tab) => (
             <a
               key={tab.label}
               href="#"
-              className="text-[14px] font-medium text-white transition-colors duration-200 hover:text-[#7dd3fc] whitespace-nowrap"
+              className="text-[11px] lg:text-[12px] xl:text-[14px] font-medium text-white transition-colors duration-200 hover:text-[#7dd3fc] whitespace-nowrap"
               style={
                 tab.active
                   ? { borderBottom: '2px solid #7dd3fc', paddingBottom: '2px' }
@@ -42,7 +42,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile: label + hamburger */}
-        <div className="flex md:hidden items-center justify-between w-full">
+        <div className="flex lg:hidden items-center justify-between w-full">
           <span className="text-white text-[14px] font-medium">premedplan.ca</span>
           <button
             onClick={() => setIsOpen((o) => !o)}
@@ -67,7 +67,7 @@ export default function Navbar() {
 
       {/* Mobile dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-[#0f1f3d] border-t border-white/10">
+        <div className="lg:hidden bg-[#0f1f3d] border-t border-white/10">
           {TABS.map((tab) => (
             <a
               key={tab.label}
