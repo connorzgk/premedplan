@@ -1,6 +1,6 @@
 const stats = [
-  { num: '6', lbl: 'Medical Schools' },
-  { num: '961', lbl: 'Total Seats/Year' },
+  { num: '7', lbl: 'Medical Schools' },
+  { num: '1,036', lbl: 'Total Seats/Year' },
   { num: '2', lbl: 'No MCAT Required' },
   { num: '1', lbl: 'CARS Only' },
 ];
@@ -21,7 +21,7 @@ export default function Header() {
       </h1>
 
       <p className="text-[15px] opacity-[0.72] max-w-[480px] mx-auto mb-8 leading-[1.6]">
-        Admissions requirements for all 6 Ontario MD programs — GPA, MCAT, and course prerequisites.
+        Admissions requirements for all 7 Ontario MD programs — GPA, MCAT, and course prerequisites.
       </p>
 
       <div className="inline-flex bg-white/10 border border-white/[0.18] rounded-[12px] overflow-hidden flex-col min-[701px]:flex-row">
