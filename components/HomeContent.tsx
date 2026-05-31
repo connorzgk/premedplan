@@ -12,12 +12,14 @@ import GPACalculator from './GPACalculator';
 import CostCalculator from './CostCalculator';
 import PolicyChangeTracker from './PolicyChangeTracker';
 import ReferenceLetterTemplate from './ReferenceLetterTemplate';
+import ApplicationTimeline from './ApplicationTimeline';
 
 const SCHOOL_REQUIREMENTS = 'School Requirements';
 const GPA_CALCULATOR = 'GPA Calculator';
 const COST_CALCULATOR = 'Cost Calculator';
 const POLICY_TRACKER = 'Policy Change Tracker';
 const REFERENCE_LETTER = 'Reference Letter Template';
+const APP_TIMELINE = 'Application Timeline';
 
 function ComingSoon({ tab }: { tab: string }) {
   return (
@@ -73,7 +75,13 @@ export default function HomeContent() {
         </main>
       )}
 
-      {activeTab !== SCHOOL_REQUIREMENTS && activeTab !== GPA_CALCULATOR && activeTab !== COST_CALCULATOR && activeTab !== POLICY_TRACKER && activeTab !== REFERENCE_LETTER && (
+      {activeTab === APP_TIMELINE && (
+        <main className="max-w-[1260px] mx-auto px-6 pt-9 pb-4">
+          <ApplicationTimeline />
+        </main>
+      )}
+
+      {activeTab !== SCHOOL_REQUIREMENTS && activeTab !== GPA_CALCULATOR && activeTab !== COST_CALCULATOR && activeTab !== POLICY_TRACKER && activeTab !== REFERENCE_LETTER && activeTab !== APP_TIMELINE && (
         <ComingSoon tab={activeTab} />
       )}
 
