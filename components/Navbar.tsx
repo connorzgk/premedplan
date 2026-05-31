@@ -8,7 +8,6 @@ const TAB_LABELS = [
   'Cost Calculator',
   'Policy Change Tracker',
   'Reference Letter Template',
-  'Free Resources',
   'Application Timeline',
   'Personal Story',
 ];
