@@ -73,6 +73,16 @@ export const SCHOOL_FEES: SchoolFeeInfo[] = [
     requiresDuet: false,
   },
   {
+    id: 'tmu',
+    name: 'Toronto Metropolitan University',
+    abbr: 'TMU',
+    color: '#C9960C',
+    requiresMCAT: true,
+    requiresCasper: true,
+    requiresSnapshot: false,
+    requiresDuet: false,
+  },
+  {
     id: 'nosm',
     name: 'NOSM University',
     abbr: 'NOSM',

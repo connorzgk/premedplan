@@ -135,6 +135,33 @@ export const schools: School[] = [
     seats: '~164',
   },
   {
+    id: 'tmu',
+    name: 'Toronto Metropolitan University',
+    abbr: 'TMU',
+    color: '#C9960C',
+    program: '4-Year MD',
+    programLen: 4,
+    mcatStatus: 'required',
+    gpa: {
+      min: '3.0',
+      competitive: '3.7+',
+      note: 'OMSAS scale. Holistic review with strong emphasis on equity, diversity, and lived experience. School opened in 2023 — competitive thresholds are still emerging as the applicant pool develops.',
+    },
+    mcat: {
+      min: '500 total · 125 per section',
+      competitive: '510+',
+      note: 'All 4 sections required. CASPer also required. Cutoffs may evolve as the school matures — verify with TMU admissions before applying.',
+    },
+    prereqs: [
+      'Minimum 3 years of undergraduate study at an accredited institution',
+      'No specific prerequisite courses required',
+      'CASPer test required',
+      'Strong emphasis on commitment to underserved and equity-deserving communities (Peel Region focus)',
+    ],
+    website: 'https://www.tmu.ca/academics/programs/graduate/medicine/index.html',
+    seats: '~75',
+  },
+  {
     id: 'nosm',
     name: 'NOSM University',
     abbr: 'NOSM',

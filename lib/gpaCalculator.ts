@@ -201,6 +201,16 @@ const SCHOOL_DEFS = [
     calc: (c: Course[]) => lastNYears(c, 3),
   },
   {
+    id: 'tmu',
+    name: 'Toronto Metropolitan University',
+    abbr: 'TMU',
+    color: '#C9960C',
+    method: 'Cumulative GPA — all courses, all years',
+    minGPA: '3.0',
+    competitiveGPA: '3.7',
+    calc: (c: Course[]) => cgpaResult(c),
+  },
+  {
     id: 'nosm',
     name: 'NOSM University',
     abbr: 'NOSM',
