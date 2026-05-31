@@ -9,9 +9,11 @@ import Disclaimer from './Disclaimer';
 import Sources from './Sources';
 import Footer from './Footer';
 import GPACalculator from './GPACalculator';
+import CostCalculator from './CostCalculator';
 
 const SCHOOL_REQUIREMENTS = 'School Requirements';
 const GPA_CALCULATOR = 'GPA Calculator';
+const COST_CALCULATOR = 'Cost Calculator';
 
 function ComingSoon({ tab }: { tab: string }) {
   return (
@@ -49,7 +51,13 @@ export default function HomeContent() {
         </main>
       )}
 
-      {activeTab !== SCHOOL_REQUIREMENTS && activeTab !== GPA_CALCULATOR && (
+      {activeTab === COST_CALCULATOR && (
+        <main className="max-w-[1260px] mx-auto px-6 pt-9 pb-4">
+          <CostCalculator />
+        </main>
+      )}
+
+      {activeTab !== SCHOOL_REQUIREMENTS && activeTab !== GPA_CALCULATOR && activeTab !== COST_CALCULATOR && (
         <ComingSoon tab={activeTab} />
       )}
 
