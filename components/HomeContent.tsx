@@ -10,10 +10,12 @@ import Sources from './Sources';
 import Footer from './Footer';
 import GPACalculator from './GPACalculator';
 import CostCalculator from './CostCalculator';
+import PolicyChangeTracker from './PolicyChangeTracker';
 
 const SCHOOL_REQUIREMENTS = 'School Requirements';
 const GPA_CALCULATOR = 'GPA Calculator';
 const COST_CALCULATOR = 'Cost Calculator';
+const POLICY_TRACKER = 'Policy Change Tracker';
 
 function ComingSoon({ tab }: { tab: string }) {
   return (
@@ -57,7 +59,13 @@ export default function HomeContent() {
         </main>
       )}
 
-      {activeTab !== SCHOOL_REQUIREMENTS && activeTab !== GPA_CALCULATOR && activeTab !== COST_CALCULATOR && (
+      {activeTab === POLICY_TRACKER && (
+        <main className="max-w-[1260px] mx-auto px-6 pt-9 pb-4">
+          <PolicyChangeTracker />
+        </main>
+      )}
+
+      {activeTab !== SCHOOL_REQUIREMENTS && activeTab !== GPA_CALCULATOR && activeTab !== COST_CALCULATOR && activeTab !== POLICY_TRACKER && (
         <ComingSoon tab={activeTab} />
       )}
 

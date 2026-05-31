@@ -1,0 +1,126 @@
+export type ChangeCategory = 'gpa' | 'mcat' | 'casper' | 'process';
+
+export interface PolicyChange {
+  id: string;
+  cycleYear: string;    // e.g. "2025–26"
+  schoolId: string;
+  schoolName: string;
+  schoolAbbr: string;
+  schoolColor: string;
+  category: ChangeCategory;
+  title: string;
+  from?: string;
+  to?: string;
+  note: string;
+}
+
+export const CATEGORY_META: Record<ChangeCategory, { label: string; bg: string; text: string }> = {
+  gpa:     { label: 'GPA',     bg: '#eff6ff', text: '#1d4ed8' },
+  mcat:    { label: 'MCAT',    bg: '#faf5ff', text: '#6b21a8' },
+  casper:  { label: 'CASPer',  bg: '#f0fdf4', text: '#166534' },
+  process: { label: 'Process', bg: '#f3f4f6', text: '#374151' },
+};
+
+// Newest entries at the top. Add new entries here as policies change.
+export const POLICY_CHANGES: PolicyChange[] = [
+  {
+    id: 'queens-qars-2025',
+    cycleYear: '2025–26',
+    schoolId: 'queens',
+    schoolName: "Queen's University",
+    schoolAbbr: "Queen's",
+    schoolColor: '#B10D28',
+    category: 'process',
+    title: 'QARS lottery system replaces rank-based screening',
+    note: "Queen's replaced traditional GPA/MCAT/CASPer rank-based pre-interview screening with QARS (Queen's Applicant Review System). Applicants who meet all minimum thresholds (GPA, MCAT section mins, CASPer cutoff) are entered into a randomized lottery for MMI invitations — removing the advantage of marginal score differences above the cutoff.",
+  },
+  {
+    id: 'western-mcat-2024',
+    cycleYear: '2024–25',
+    schoolId: 'western',
+    schoolName: 'Western University',
+    schoolAbbr: 'Schulich',
+    schoolColor: '#4F2683',
+    category: 'mcat',
+    title: 'Section minimums updated for 2024–25 cycle',
+    from: '126 C/P · 126 CARS · 126 B/B · 125 P/S',
+    to: '127 C/P · 127 CARS · 127 B/B · 126 P/S',
+    note: "Western reviews and resets MCAT section minimums each cycle based on the competitiveness of the applicant pool. Pathway stream applicants retain a lower threshold of 125 per section.",
+  },
+  {
+    id: 'uottawa-casper-2024',
+    cycleYear: '2024–25',
+    schoolId: 'uottawa',
+    schoolName: 'University of Ottawa',
+    schoolAbbr: 'uOttawa',
+    schoolColor: '#8F001A',
+    category: 'casper',
+    title: 'CASPer requirement added',
+    from: 'Not required',
+    to: 'Required',
+    note: "uOttawa added CASPer (Altus Suite) as a required component of the application. Despite not requiring the MCAT, uOttawa now uses CASPer as a standardized professionalism screen.",
+  },
+  {
+    id: 'uoft-grad-gpa-2024',
+    cycleYear: '2024–25',
+    schoolId: 'uoft',
+    schoolName: 'University of Toronto',
+    schoolAbbr: 'UofT',
+    schoolColor: '#002A5C',
+    category: 'gpa',
+    title: 'Lowered minimum GPA threshold for graduate applicants',
+    from: '3.6',
+    to: '3.3',
+    note: "UofT introduced a separate, lower GPA minimum (3.3 on OMSAS scale) for applicants who have completed graduate-level study. The standard minimum for undergraduate applicants remains 3.6.",
+  },
+  {
+    id: 'tmu-opens-2023',
+    cycleYear: '2023–24',
+    schoolId: 'tmu',
+    schoolName: 'Toronto Metropolitan University',
+    schoolAbbr: 'TMU',
+    schoolColor: '#C9960C',
+    category: 'process',
+    title: 'Lincoln Alexander School of Medicine opens',
+    note: "TMU launched Ontario's newest MD program — the Lincoln Alexander School of Medicine — with a first cohort of ~75 students. The school is located in Brampton and places strong emphasis on equity-deserving applicants and serving the Peel Region community. MCAT and CASPer are both required.",
+  },
+  {
+    id: 'mac-snapshot-duet-2023',
+    cycleYear: '2023–24',
+    schoolId: 'mcmaster',
+    schoolName: 'McMaster University',
+    schoolAbbr: 'Mac',
+    schoolColor: '#7A003C',
+    category: 'casper',
+    title: 'Snapshot and Duet added to Altus Suite requirements',
+    from: 'CASPer only',
+    to: 'CASPer + Snapshot + Duet',
+    note: "McMaster expanded its Altus Suite requirements to include Snapshot (a 2-minute video response) and Duet (a personality-based assessment), in addition to the existing CASPer test. Both carry per-program distribution fees on top of the base CASPer fee.",
+  },
+  {
+    id: 'nosm-independence-2022',
+    cycleYear: '2022–23',
+    schoolId: 'nosm',
+    schoolName: 'NOSM University',
+    schoolAbbr: 'NOSM',
+    schoolColor: '#1a7a4a',
+    category: 'process',
+    title: 'NOSM becomes an independent university',
+    from: 'Federated with Laurentian University',
+    to: 'Independent: NOSM University',
+    note: "Following Laurentian University's insolvency proceedings, NOSM separated and was granted independent university status by the Ontario government in 2022. It now operates as NOSM University and issues its own MD degrees.",
+  },
+  {
+    id: 'mac-grad-bonus-2022',
+    cycleYear: '2022–23',
+    schoolId: 'mcmaster',
+    schoolName: 'McMaster University',
+    schoolAbbr: 'Mac',
+    schoolColor: '#7A003C',
+    category: 'gpa',
+    title: 'Graduate applicant GPA bonus formalized',
+    from: 'No formal bonus',
+    to: '1–4% GPA bonus for completed graduate degrees',
+    note: "McMaster formalized a 1–4% bonus applied to the GPA component of the pre-interview score for applicants who have completed a graduate-level degree (Master's or PhD). The exact bonus scales with the degree type and level of completion.",
+  },
+];
