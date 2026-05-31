@@ -92,6 +92,7 @@ export default function GPACalculator() {
                         <option value={2}>Year 2</option>
                         <option value={3}>Year 3</option>
                         <option value={4}>Year 4</option>
+                        <option value={5}>Year 5</option>
                       </select>
                     </td>
 
@@ -195,7 +196,7 @@ export default function GPACalculator() {
 
       {/* Year Summary */}
       {yearSummaries.length > 0 && (
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-5">
           {yearSummaries.map(ys => (
             <div key={ys.year} className="bg-white rounded-[10px] shadow-[0_1px_4px_rgba(0,0,0,0.07)] px-4 py-3">
               <div className="text-[10px] font-bold uppercase tracking-[0.06em] text-[#6b7280] mb-[3px]">Year {ys.year}</div>
