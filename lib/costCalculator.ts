@@ -7,10 +7,11 @@ export interface SchoolFeeInfo {
   requiresCasper: boolean;
   requiresSnapshot: boolean;
   requiresDuet: boolean;
+  designationFee?: number;
 }
 
-// 2024–25 Ontario cycle fees (CAD unless noted)
-export const OMSAS_BASE_FEE = 210;
+// 2025–26 Ontario cycle fees (CAD unless noted)
+export const OMSAS_BASE_FEE = 220;
 export const OMSAS_PER_SCHOOL = 135;
 export const MCAT_FEE_USD = 335;
 export const MCAT_FEE_CAD = 459; // ~1.37 exchange rate
@@ -39,8 +40,8 @@ export const SCHOOL_FEES: SchoolFeeInfo[] = [
     color: '#7A003C',
     requiresMCAT: true,
     requiresCasper: true,
-    requiresSnapshot: true,
-    requiresDuet: true,
+    requiresSnapshot: false,
+    requiresDuet: false,
   },
   {
     id: 'western',
@@ -77,10 +78,11 @@ export const SCHOOL_FEES: SchoolFeeInfo[] = [
     name: 'Toronto Metropolitan University',
     abbr: 'TMU',
     color: '#C9960C',
-    requiresMCAT: true,
-    requiresCasper: true,
+    requiresMCAT: false,
+    requiresCasper: false,
     requiresSnapshot: false,
     requiresDuet: false,
+    designationFee: 130,
   },
   {
     id: 'nosm',

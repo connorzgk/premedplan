@@ -69,10 +69,22 @@ export default function CostCalculator() {
     });
 
     if (selected.size > 0) {
+      const schoolFeesTotal = selectedSchools.reduce(
+        (sum, s) => sum + (s.designationFee ?? OMSAS_PER_SCHOOL),
+        0
+      );
+      const allSameRate = selectedSchools.every(
+        (s) => (s.designationFee ?? OMSAS_PER_SCHOOL) === OMSAS_PER_SCHOOL
+      );
+      const desc = allSameRate
+        ? `${selected.size} school${selected.size !== 1 ? 's' : ''} × $${OMSAS_PER_SCHOOL}`
+        : selectedSchools
+            .map((s) => `${s.abbr} $${s.designationFee ?? OMSAS_PER_SCHOOL}`)
+            .join(' + ');
       rows.push({
         label: 'OMSAS School Fees',
-        desc: `${selected.size} school${selected.size !== 1 ? 's' : ''} × $${OMSAS_PER_SCHOOL}`,
-        amount: selected.size * OMSAS_PER_SCHOOL,
+        desc,
+        amount: schoolFeesTotal,
       });
     }
 
@@ -163,7 +175,7 @@ export default function CostCalculator() {
         <div className="px-[22px] py-[18px] border-b border-[#e5e7eb]">
           <h2 className="text-[16px] font-bold text-[#111827]">Schools You're Applying To</h2>
           <p className="text-[12px] text-[#6b7280] mt-[3px]">
-            Select each school to add its $50 OMSAS designation fee and see which tests are required.
+            Select each school to add its OMSAS designation fee and see which tests are required.
           </p>
         </div>
         <div className="p-[18px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -309,7 +321,7 @@ export default function CostCalculator() {
 
         <div className="px-[22px] py-[13px] border-t border-[#e5e7eb]">
           <p className="text-[11px] text-[#9ca3af] leading-[1.6]">
-            OMSAS fees reflect the 2024–25 cycle — verify current amounts at omsas.ca before applying.
+            OMSAS fees reflect the 2025–26 cycle — verify current amounts at omsas.ca before applying.
             MCAT shown in CAD using an approximate exchange rate; actual cost varies with the USD/CAD rate.
             CASPer base fee ($85) covers unlimited program distributions. Snapshot and Duet are per-program add-ons required by McMaster.
           </p>

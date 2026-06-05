@@ -137,6 +137,21 @@ function best3Years(courses: Course[]): CalcResult {
   };
 }
 
+function best2Years(courses: Course[]): CalcResult {
+  const summaries = calcYearSummaries(courses);
+  if (summaries.length <= 2) {
+    return { gpa: weightedAvg(courses), usedYears: summaries.map(s => s.year), droppedYears: [] };
+  }
+  const sorted = [...summaries].sort((a, b) => b.gpa - a.gpa);
+  const usedYears = sorted.slice(0, 2).map(s => s.year);
+  const droppedYears = sorted.slice(2).map(s => s.year);
+  return {
+    gpa: weightedAvg(courses.filter(c => usedYears.includes(c.year))),
+    usedYears: usedYears.sort((a, b) => a - b),
+    droppedYears,
+  };
+}
+
 function lastNYears(courses: Course[], n: number): CalcResult {
   const summaries = calcYearSummaries(courses);
   const sorted = [...summaries].sort((a, b) => b.year - a.year);
@@ -155,10 +170,10 @@ const SCHOOL_DEFS = [
     name: 'University of Toronto',
     abbr: 'UofT',
     color: '#002A5C',
-    method: 'Best 3 years — drops lowest-GPA year if 4+ completed',
+    method: 'Cumulative GPA — all courses, all years',
     minGPA: '3.6',
     competitiveGPA: '3.9',
-    calc: (c: Course[]) => best3Years(c),
+    calc: (c: Course[]) => cgpaResult(c),
   },
   {
     id: 'mcmaster',
@@ -175,10 +190,10 @@ const SCHOOL_DEFS = [
     name: 'Western University',
     abbr: 'Schulich',
     color: '#4F2683',
-    method: 'Cumulative GPA — must meet 3.7 in 2+ individual years',
+    method: 'Best 2 years — 3.7 minimum required in each year',
     minGPA: '3.7*',
     competitiveGPA: '3.9',
-    calc: (c: Course[]) => cgpaResult(c),
+    calc: (c: Course[]) => best2Years(c),
   },
   {
     id: 'queens',
@@ -215,10 +230,10 @@ const SCHOOL_DEFS = [
     name: 'NOSM University',
     abbr: 'NOSM',
     color: '#1a7a4a',
-    method: 'Last 2 years — highest 2 year numbers used',
+    method: 'Cumulative GPA — all courses, all years',
     minGPA: '3.0',
     competitiveGPA: '3.76',
-    calc: (c: Course[]) => lastNYears(c, 2),
+    calc: (c: Course[]) => cgpaResult(c),
   },
 ];
 

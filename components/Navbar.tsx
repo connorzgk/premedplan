@@ -9,7 +9,7 @@ const TAB_LABELS = [
   'Policy Change Tracker',
   'Reference Letter Template',
   'Application Timeline',
-  'Personal Story',
+  "Creator's Personal Story",
 ];
 
 interface NavbarProps {

@@ -2,19 +2,6 @@
 
 import { useState, useMemo } from 'react';
 
-type RefereeStatus = 'not-asked' | 'asked' | 'confirmed' | 'submitted';
-type RefereeType = 'academic' | 'professional' | 'personal' | '';
-
-interface Referee {
-  id: string;
-  name: string;
-  title: string;
-  institution: string;
-  type: RefereeType;
-  status: RefereeStatus;
-  notes: string;
-}
-
 interface EmailForm {
   yourName: string;
   refereeName: string;
@@ -22,20 +9,6 @@ interface EmailForm {
   howYouKnowThem: string;
   highlights: string;
   deadline: string;
-}
-
-const STATUS_META: Record<RefereeStatus, { label: string; bg: string; text: string; dot: string }> = {
-  'not-asked': { label: 'Not Asked',  bg: '#f3f4f6', text: '#6b7280', dot: '#d1d5db' },
-  'asked':     { label: 'Asked',      bg: '#fffbeb', text: '#92400e', dot: '#f59e0b' },
-  'confirmed': { label: 'Confirmed',  bg: '#eff6ff', text: '#1e40af', dot: '#3b82f6' },
-  'submitted': { label: 'Submitted',  bg: '#f0fdf4', text: '#166534', dot: '#22c55e' },
-};
-
-function makeReferee(): Referee {
-  return {
-    id: Math.random().toString(36).slice(2, 9),
-    name: '', title: '', institution: '', type: '', status: 'not-asked', notes: '',
-  };
 }
 
 function generateEmail(f: EmailForm): string {
@@ -96,21 +69,9 @@ function CopyButton({ text }: { text: string }) {
 }
 
 export default function ReferenceLetterTemplate() {
-  const [referees, setReferees] = useState<Referee[]>([makeReferee(), makeReferee(), makeReferee()]);
   const [email, setEmail] = useState<EmailForm>({
     yourName: '', refereeName: '', refereeTitle: '', howYouKnowThem: '', highlights: '', deadline: '',
   });
-
-  const updateReferee = (id: string, patch: Partial<Referee>) =>
-    setReferees(prev => prev.map(r => r.id === id ? { ...r, ...patch } : r));
-  const removeReferee = (id: string) =>
-    setReferees(prev => prev.filter(r => r.id !== id));
-
-  const statusCounts = useMemo(() => ({
-    submitted: referees.filter(r => r.status === 'submitted').length,
-    confirmed: referees.filter(r => r.status === 'confirmed').length,
-    asked: referees.filter(r => r.status === 'asked').length,
-  }), [referees]);
 
   const generatedEmail = useMemo(() => generateEmail(email), [email]);
 
@@ -119,151 +80,6 @@ export default function ReferenceLetterTemplate() {
 
   return (
     <div>
-      {/* Progress summary */}
-      <div className="grid grid-cols-3 gap-3 mb-5">
-        {[
-          { label: 'Submitted',  count: statusCounts.submitted, total: referees.length, dot: '#22c55e', bg: 'bg-white' },
-          { label: 'Confirmed',  count: statusCounts.confirmed, total: referees.length, dot: '#3b82f6', bg: 'bg-white' },
-          { label: 'Asked',      count: statusCounts.asked,     total: referees.length, dot: '#f59e0b', bg: 'bg-white' },
-        ].map(card => (
-          <div key={card.label} className={`${card.bg} rounded-[10px] shadow-[0_1px_4px_rgba(0,0,0,0.07)] px-4 py-3`}>
-            <div className="flex items-center gap-[6px] mb-[3px]">
-              <div className="w-[8px] h-[8px] rounded-full flex-shrink-0" style={{ background: card.dot }} />
-              <div className="text-[10px] font-bold uppercase tracking-[0.06em] text-[#6b7280]">{card.label}</div>
-            </div>
-            <div className="text-[22px] font-bold text-[#111827] leading-none">{card.count} <span className="text-[15px] font-medium text-[#9ca3af]">/ {card.total}</span></div>
-          </div>
-        ))}
-      </div>
-
-      {/* Referee Tracker */}
-      <div className="bg-white rounded-[14px] shadow-[0_1px_4px_rgba(0,0,0,0.07),0_4px_12px_rgba(0,0,0,0.05)] overflow-hidden mb-5">
-        <div className="px-[22px] py-[18px] border-b border-[#e5e7eb] flex items-start justify-between gap-4">
-          <div>
-            <h2 className="text-[16px] font-bold text-[#111827]">Referee Tracker</h2>
-            <p className="text-[12px] text-[#6b7280] mt-[3px]">
-              OMSAS requires 3 confidential reference letters. Track each referee's status here.
-            </p>
-          </div>
-          <button
-            onClick={() => setReferees(prev => [...prev, makeReferee()])}
-            className="text-[12px] font-semibold text-[#0f1f3d] hover:text-[#264070] border border-[#e5e7eb] rounded-[8px] px-3 py-[6px] hover:bg-[#f9fafb] transition-colors whitespace-nowrap flex-shrink-0"
-          >
-            + Add Referee
-          </button>
-        </div>
-
-        <div className="divide-y divide-[#e5e7eb]">
-          {referees.map((ref, i) => {
-            const sm = STATUS_META[ref.status];
-            return (
-              <div key={ref.id} className="px-[22px] py-[18px]">
-                {/* Row header */}
-                <div className="flex items-center justify-between gap-3 mb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-[26px] h-[26px] rounded-full bg-[#0f1f3d] flex items-center justify-center text-white text-[11px] font-bold flex-shrink-0">
-                      {i + 1}
-                    </div>
-                    <span className="text-[13px] font-bold text-[#111827]">
-                      {ref.name || `Referee ${i + 1}`}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span
-                      className="text-[11px] font-bold px-[8px] py-[3px] rounded-[5px] flex items-center gap-[5px]"
-                      style={{ background: sm.bg, color: sm.text }}
-                    >
-                      <span className="w-[6px] h-[6px] rounded-full inline-block" style={{ background: sm.dot }} />
-                      {sm.label}
-                    </span>
-                    {referees.length > 3 && (
-                      <button
-                        onClick={() => removeReferee(ref.id)}
-                        className="text-[#9ca3af] hover:text-[#ef4444] transition-colors text-[18px] leading-none"
-                        aria-label="Remove referee"
-                      >×</button>
-                    )}
-                  </div>
-                </div>
-
-                {/* Fields */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-3">
-                  <div>
-                    <label className={labelCls}>Full Name</label>
-                    <input
-                      type="text"
-                      placeholder="Dr. Jane Smith"
-                      value={ref.name}
-                      onChange={e => updateReferee(ref.id, { name: e.target.value })}
-                      className={inputCls}
-                    />
-                  </div>
-                  <div>
-                    <label className={labelCls}>Title / Role</label>
-                    <input
-                      type="text"
-                      placeholder="Associate Professor"
-                      value={ref.title}
-                      onChange={e => updateReferee(ref.id, { title: e.target.value })}
-                      className={inputCls}
-                    />
-                  </div>
-                  <div>
-                    <label className={labelCls}>Institution</label>
-                    <input
-                      type="text"
-                      placeholder="University of Toronto"
-                      value={ref.institution}
-                      onChange={e => updateReferee(ref.id, { institution: e.target.value })}
-                      className={inputCls}
-                    />
-                  </div>
-                  <div>
-                    <label className={labelCls}>Type</label>
-                    <select
-                      value={ref.type}
-                      onChange={e => updateReferee(ref.id, { type: e.target.value as RefereeType })}
-                      className={inputCls}
-                    >
-                      <option value="">Select type…</option>
-                      <option value="academic">Academic</option>
-                      <option value="professional">Professional</option>
-                      <option value="personal">Personal / Character</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-[1fr_180px] gap-3">
-                  <div>
-                    <label className={labelCls}>Notes</label>
-                    <input
-                      type="text"
-                      placeholder="e.g. Research supervisor, BIO301 instructor, contacted Oct 3…"
-                      value={ref.notes}
-                      onChange={e => updateReferee(ref.id, { notes: e.target.value })}
-                      className={inputCls}
-                    />
-                  </div>
-                  <div>
-                    <label className={labelCls}>Status</label>
-                    <select
-                      value={ref.status}
-                      onChange={e => updateReferee(ref.id, { status: e.target.value as RefereeStatus })}
-                      className={inputCls}
-                    >
-                      <option value="not-asked">Not Asked</option>
-                      <option value="asked">Asked</option>
-                      <option value="confirmed">Confirmed</option>
-                      <option value="submitted">Submitted</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
       {/* Request Email Generator */}
       <div className="bg-white rounded-[14px] shadow-[0_1px_4px_rgba(0,0,0,0.07),0_4px_12px_rgba(0,0,0,0.05)] overflow-hidden mb-5">
         <div className="px-[22px] py-[18px] border-b border-[#e5e7eb]">
@@ -326,7 +142,6 @@ export default function ReferenceLetterTemplate() {
             </div>
             <textarea
               value={generatedEmail}
-              onChange={e => {/* read-only preview, but allow manual edits via direct state */}}
               readOnly
               rows={22}
               className="w-full flex-1 text-[12px] font-mono text-[#374151] border border-[#e5e7eb] rounded-[8px] p-3 bg-[#f9fafb] resize-none focus:outline-none focus:ring-2 focus:ring-[#7dd3fc] leading-[1.7]"
@@ -339,7 +154,7 @@ export default function ReferenceLetterTemplate() {
       <div className="bg-white rounded-[14px] shadow-[0_1px_4px_rgba(0,0,0,0.07),0_4px_12px_rgba(0,0,0,0.05)] overflow-hidden mb-7">
         <div className="px-[22px] py-[18px] border-b border-[#e5e7eb] flex items-center justify-between">
           <h2 className="text-[16px] font-bold text-[#111827]">OMSAS Reference Letter Guide</h2>
-          <span className="text-[11px] font-semibold text-[#6b7280] bg-[#f3f4f6] px-2 py-[3px] rounded-[5px]">2024–25 cycle</span>
+          <span className="text-[11px] font-semibold text-[#6b7280] bg-[#f3f4f6] px-2 py-[3px] rounded-[5px]">2025–26 cycle</span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 divide-y sm:divide-y-0 sm:divide-x divide-[#e5e7eb]">

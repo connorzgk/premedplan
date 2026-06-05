@@ -21,7 +21,7 @@ const COST_CALCULATOR = 'Cost Calculator';
 const POLICY_TRACKER = 'Policy Change Tracker';
 const REFERENCE_LETTER = 'Reference Letter Template';
 const APP_TIMELINE = 'Application Timeline';
-const PERSONAL_STORY = 'Personal Story';
+const PERSONAL_STORY = "Creator's Personal Story";
 
 function ComingSoon({ tab }: { tab: string }) {
   return (

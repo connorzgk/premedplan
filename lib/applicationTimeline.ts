@@ -26,7 +26,7 @@ export const MILESTONES: Milestone[] = [
     monthOrder: 1,
     category: 'omsas',
     title: 'Begin drafting your personal statement',
-    description: 'Start early — the OMSAS Autobiographical Sketch requires significant reflection and multiple revisions. List all activities, research, work, and volunteer experiences you plan to include.',
+    description: 'Start early. The OMSAS Autobiographical Sketch requires significant reflection and multiple revisions. List all activities, research, work, and volunteer experiences you plan to include.',
   },
   {
     id: 'identify-referees',
@@ -48,7 +48,7 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'omsas-opens',
-    date: 'July 7, 2026',
+    date: 'July 2026',
     month: 'July 2026',
     monthOrder: 4,
     category: 'omsas',
@@ -62,7 +62,7 @@ export const MILESTONES: Milestone[] = [
     monthOrder: 4,
     category: 'omsas',
     title: 'Request official transcripts from all institutions',
-    description: 'Contact every university or college you attended and request official transcripts be sent directly to OMSAS. Processing can take 2–4 weeks — do not leave this until September.',
+    description: 'Contact every university or college you attended and request official transcripts be sent directly to OMSAS. Processing can take 2 to 4 weeks; do not leave this until September.',
   },
   {
     id: 'referee-confirmation',
@@ -80,7 +80,7 @@ export const MILESTONES: Milestone[] = [
     monthOrder: 5,
     category: 'omsas',
     title: 'Finalize personal statement and Autobiographical Sketch',
-    description: 'Incorporate feedback from advisors, peers, or premed mentors. Every sketch entry requires a verifier — ensure all contact details are accurate and your verifiers are aware they may be contacted.',
+    description: 'Incorporate feedback from advisors, peers, or premed mentors. Every sketch entry requires a verifier; ensure all contact details are accurate and your verifiers are aware they may be contacted.',
   },
   {
     id: 'referee-followup',
@@ -117,7 +117,7 @@ export const MILESTONES: Milestone[] = [
     monthOrder: 7,
     category: 'reference',
     title: 'Reference Letters Deadline',
-    description: 'All 3 referees must submit their letters through the OMSAS EMS portal by the application deadline. Send a final reminder at least one week before — do not wait until the last day.',
+    description: 'All 3 referees must submit their letters through the OMSAS EMS portal by the application deadline. Send a final reminder at least one week before; do not wait until the last day.',
     isDeadline: true,
   },
   {
@@ -137,7 +137,7 @@ export const MILESTONES: Milestone[] = [
     monthOrder: 8,
     category: 'interview',
     title: 'First-round interview invitations released',
-    description: 'UofT, McMaster, and Western typically release MMI invitations in December. Check your email and OMSAS portal regularly. Begin structured MMI preparation if invited — 4–6 weeks of prep is recommended.',
+    description: 'UofT, McMaster, and Western typically release MMI invitations in December. Check your email and OMSAS portal regularly. Begin structured MMI preparation if invited; 4 to 6 weeks of prep is recommended.',
   },
   {
     id: 'second-invitations',
@@ -146,11 +146,11 @@ export const MILESTONES: Milestone[] = [
     monthOrder: 9,
     category: 'interview',
     title: 'Second-round interview invitations released',
-    description: "Queen's, uOttawa, NOSM, and TMU typically release invitations in January. Continue monitoring your email. If you have not received an invitation from a school by late January, you may be waitlisted for an interview.",
+    description: "Queen's, uOttawa, NOSM, and TMU typically release invitations in January. Continue monitoring your email.",
   },
   {
     id: 'interview-season',
-    date: 'February – March 2027',
+    date: 'February 2027',
     month: 'February 2027',
     monthOrder: 10,
     category: 'interview',
@@ -159,7 +159,7 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'offer-day',
-    date: 'May 14, 2027',
+    date: 'May 2027',
     month: 'May 2027',
     monthOrder: 11,
     category: 'interview',
@@ -169,7 +169,7 @@ export const MILESTONES: Milestone[] = [
   },
   {
     id: 'acceptance-deadline',
-    date: 'May 28, 2027',
+    date: 'May 2027',
     month: 'May 2027',
     monthOrder: 11,
     category: 'interview',

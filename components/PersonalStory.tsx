@@ -31,8 +31,8 @@ export default function PersonalStory() {
       >
         <div className="px-[28px] pt-[28px] pb-[24px] flex flex-col sm:flex-row sm:items-center gap-6">
           {/* Avatar */}
-          <div className="w-[72px] h-[72px] rounded-full bg-white/15 border-2 border-white/25 flex items-center justify-center flex-shrink-0">
-            <span className="text-[30px] font-extrabold text-white leading-none">C</span>
+          <div className="w-[72px] h-[72px] rounded-full border-2 border-white/25 overflow-hidden flex-shrink-0">
+            <img src="/connor.jpg" alt="Connor" className="w-full h-full object-cover" style={{ objectPosition: '70% 20%' }} />
           </div>
 
           <div className="flex-1">
@@ -73,6 +73,17 @@ export default function PersonalStory() {
         <div className="px-[28px] py-[20px]">
           <p className="text-[13px] text-[#6b7280] leading-[1.75] max-w-[720px]">{WHY_BUILT}</p>
         </div>
+      </div>
+
+      {/* Contact */}
+      <div className="bg-white rounded-[14px] shadow-[0_1px_4px_rgba(0,0,0,0.07),0_4px_12px_rgba(0,0,0,0.05)] px-[28px] py-[20px] mb-7">
+        <p className="text-[12px] font-bold uppercase tracking-[0.06em] text-[#6b7280] mb-[10px]">Get in touch</p>
+        <a
+          href="mailto:connorzgk@gmail.com"
+          className="text-[14px] font-semibold text-[#2563eb] hover:underline"
+        >
+          connorzgk@gmail.com
+        </a>
       </div>
     </div>
   );

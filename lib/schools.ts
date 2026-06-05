@@ -40,7 +40,7 @@ export const schools: School[] = [
     gpa: {
       min: '3.0',
       competitive: '3.92',
-      note: 'OMSAS scale. GPA accounts for 32% of pre-interview score. GPA is NOT rounded — exact decimal is used. Graduate bonus: +1% (Masters), +3% (PhD). Class of 2028 mean GPA was 3.92.',
+      note: 'OMSAS scale. GPA accounts for 32% of pre-interview score. GPA is NOT rounded — exact decimal is used. Graduate bonus: +1% (Masters), +4% (PhD). Class of 2028 mean GPA was 3.92.',
     },
     mcat: {
       min: 'CARS section: 123 minimum',
