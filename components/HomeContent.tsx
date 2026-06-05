@@ -45,9 +45,9 @@ export default function HomeContent() {
         <>
           <Header />
           <main className="max-w-[1260px] mx-auto px-6 pt-9 pb-4">
+            <Disclaimer />
             <SchoolsSection />
             <ComparisonTable />
-            <Disclaimer />
             <Sources />
           </main>
         </>

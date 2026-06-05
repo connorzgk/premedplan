@@ -1,7 +1,7 @@
 const stats = [
   { num: '7', lbl: 'Medical Schools' },
-  { num: '1,036', lbl: 'Total Seats/Year' },
-  { num: '2', lbl: 'No MCAT Required' },
+  { num: '1,217', lbl: 'Total Seats/Year' },
+  { num: '3', lbl: 'No MCAT Required' },
   { num: '1', lbl: 'CARS Only' },
 ];
 

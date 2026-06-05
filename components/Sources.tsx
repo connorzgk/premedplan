@@ -20,6 +20,10 @@ const sources = [
     href: 'https://www.uottawa.ca/faculty-medicine/undergraduate/application-process',
   },
   {
+    label: 'TMU — MD Admission Requirements',
+    href: 'https://www.torontomu.ca/school-of-medicine/programs/md/md-admissions/before-you-apply/admission-requirements/',
+  },
+  {
     label: 'NOSM U — MD Admissions',
     href: 'https://www.nosm.ca/nosm-university-admissions-learner-recruitment/ume-program-md-degree-admissions/',
   },

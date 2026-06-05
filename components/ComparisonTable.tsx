@@ -30,8 +30,22 @@ const HEADERS = [
   'Competitive GPA',
   'MCAT',
   'Min MCAT Threshold',
+  'CASPer',
   'Seats (~)',
 ];
+
+function CasperTag({ school }: { school: School }) {
+  const required = school.prereqs.some((p) => p.toLowerCase().includes('casper'));
+  return required ? (
+    <span className="inline-block px-2 py-[2px] rounded-[5px] text-[11px] font-bold bg-[#fff7ed] text-[#c2410c]">
+      Required
+    </span>
+  ) : (
+    <span className="inline-block px-2 py-[2px] rounded-[5px] text-[11px] font-bold bg-[#dcfce7] text-[#166534]">
+      Not Required
+    </span>
+  );
+}
 
 export default function ComparisonTable() {
   return (
@@ -80,6 +94,9 @@ export default function ComparisonTable() {
                 </td>
                 <td className="px-4 py-[13px] text-[12px] align-middle max-w-[220px]">
                   {school.mcatStatus !== 'no' ? school.mcat.min : '—'}
+                </td>
+                <td className="px-4 py-[13px] text-[13px] align-middle">
+                  <CasperTag school={school} />
                 </td>
                 <td className="px-4 py-[13px] text-[13px] align-middle">{school.seats}</td>
               </tr>
