@@ -123,6 +123,20 @@ function cgpaResult(courses: Course[]): CalcResult {
   return { gpa: weightedAvg(courses), usedYears: years, droppedYears: [] };
 }
 
+// UofT: only full-time years (3.0+ FCEs) count toward admissions GPA
+function uoftGPA(courses: Course[]): CalcResult {
+  const summaries = calcYearSummaries(courses);
+  const fullTime = summaries.filter(s => s.credits >= 3.0);
+  const partTime = summaries.filter(s => s.credits < 3.0);
+  const usedYears = fullTime.map(s => s.year);
+  const droppedYears = partTime.map(s => s.year);
+  return {
+    gpa: weightedAvg(courses.filter(c => usedYears.includes(c.year))),
+    usedYears,
+    droppedYears,
+  };
+}
+
 function best3Years(courses: Course[]): CalcResult {
   const summaries = calcYearSummaries(courses);
   if (summaries.length <= 3) {
@@ -139,12 +153,26 @@ function best3Years(courses: Course[]): CalcResult {
 
 function best2Years(courses: Course[]): CalcResult {
   const summaries = calcYearSummaries(courses);
-  if (summaries.length <= 2) {
+  // Only years with 5.0+ FCEs qualify for Western's best-2 calculation
+  const qualifying = summaries.filter(s => s.credits >= 5.0);
+  const nonQualifying = summaries.filter(s => s.credits < 5.0);
+  if (qualifying.length === 0) {
     return { gpa: weightedAvg(courses), usedYears: summaries.map(s => s.year), droppedYears: [] };
   }
-  const sorted = [...summaries].sort((a, b) => b.gpa - a.gpa);
+  if (qualifying.length <= 2) {
+    const usedYears = qualifying.map(s => s.year);
+    return {
+      gpa: weightedAvg(courses.filter(c => usedYears.includes(c.year))),
+      usedYears,
+      droppedYears: nonQualifying.map(s => s.year),
+    };
+  }
+  const sorted = [...qualifying].sort((a, b) => b.gpa - a.gpa);
   const usedYears = sorted.slice(0, 2).map(s => s.year);
-  const droppedYears = sorted.slice(2).map(s => s.year);
+  const droppedYears = [
+    ...sorted.slice(2).map(s => s.year),
+    ...nonQualifying.map(s => s.year),
+  ];
   return {
     gpa: weightedAvg(courses.filter(c => usedYears.includes(c.year))),
     usedYears: usedYears.sort((a, b) => a - b),
@@ -170,10 +198,10 @@ const SCHOOL_DEFS = [
     name: 'University of Toronto',
     abbr: 'UofT',
     color: '#002A5C',
-    method: 'Cumulative GPA: all courses, all years',
+    method: 'Cumulative GPA: full-time years only (3.0+ FCEs per year)',
     minGPA: '3.6',
     competitiveGPA: '3.9',
-    calc: (c: Course[]) => cgpaResult(c),
+    calc: (c: Course[]) => uoftGPA(c),
   },
   {
     id: 'mcmaster',
