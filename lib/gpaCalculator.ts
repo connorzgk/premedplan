@@ -151,6 +151,26 @@ function best3Years(courses: Course[]): CalcResult {
   };
 }
 
+// Western drops the lowest-graded courses in a year until total FCEs = 5.0
+function trimToFiveFCE(yearCourses: Course[]): Course[] {
+  const valid = yearCourses.filter(isValid);
+  const totalCredits = valid.reduce((s, c) => s + parseFloat(c.credits), 0);
+  if (totalCredits <= 5.0) return valid;
+  // Sort ascending by grade points so we drop lowest first
+  const sorted = [...valid].sort((a, b) => getGradePoints(a)! - getGradePoints(b)!);
+  let excess = totalCredits - 5.0;
+  const dropped = new Set<string>();
+  for (const c of sorted) {
+    if (excess <= 0) break;
+    const cr = parseFloat(c.credits);
+    if (cr <= excess) {
+      dropped.add(c.id);
+      excess -= cr;
+    }
+  }
+  return valid.filter(c => !dropped.has(c.id));
+}
+
 function best2Years(courses: Course[]): CalcResult {
   const summaries = calcYearSummaries(courses);
   // Only years with 5.0+ FCEs qualify for Western's best-2 calculation
@@ -159,22 +179,34 @@ function best2Years(courses: Course[]): CalcResult {
   if (qualifying.length === 0) {
     return { gpa: weightedAvg(courses), usedYears: summaries.map(s => s.year), droppedYears: [] };
   }
-  if (qualifying.length <= 2) {
-    const usedYears = qualifying.map(s => s.year);
+  // For each qualifying year, trim to best 5.0 FCEs
+  const coursesByYear: Record<number, Course[]> = {};
+  for (const ys of qualifying) {
+    coursesByYear[ys.year] = trimToFiveFCE(courses.filter(c => c.year === ys.year));
+  }
+  // Recompute year GPAs after trimming
+  const qualifyingWithTrimmedGPA = qualifying.map(ys => ({
+    ...ys,
+    gpa: weightedAvg(coursesByYear[ys.year])!,
+  }));
+  if (qualifyingWithTrimmedGPA.length <= 2) {
+    const usedYears = qualifyingWithTrimmedGPA.map(s => s.year);
+    const trimmedCourses = usedYears.flatMap(y => coursesByYear[y]);
     return {
-      gpa: weightedAvg(courses.filter(c => usedYears.includes(c.year))),
+      gpa: weightedAvg(trimmedCourses),
       usedYears,
       droppedYears: nonQualifying.map(s => s.year),
     };
   }
-  const sorted = [...qualifying].sort((a, b) => b.gpa - a.gpa);
+  const sorted = [...qualifyingWithTrimmedGPA].sort((a, b) => b.gpa - a.gpa);
   const usedYears = sorted.slice(0, 2).map(s => s.year);
   const droppedYears = [
     ...sorted.slice(2).map(s => s.year),
     ...nonQualifying.map(s => s.year),
   ];
+  const trimmedCourses = usedYears.flatMap(y => coursesByYear[y]);
   return {
-    gpa: weightedAvg(courses.filter(c => usedYears.includes(c.year))),
+    gpa: weightedAvg(trimmedCourses),
     usedYears: usedYears.sort((a, b) => a - b),
     droppedYears,
   };
