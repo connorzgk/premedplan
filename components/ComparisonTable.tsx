@@ -27,7 +27,7 @@ const HEADERS = [
   'School',
   'Program',
   'Min GPA',
-  'Competitive GPA',
+  'Accepted GPA',
   'MCAT',
   'Min MCAT Threshold',
   'CASPer',

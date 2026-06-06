@@ -101,7 +101,7 @@ export default function SchoolCard({ school }: { school: School }) {
         {activeTab === 'gpa' && (
           <>
             <Metric label="Minimum GPA" value={school.gpa.min} />
-            <Metric label="Competitive GPA" value={school.gpa.competitive} />
+            <Metric label="Accepted GPA" value={school.gpa.competitive} />
             <MetricNote label="Notes" note={school.gpa.note} />
           </>
         )}

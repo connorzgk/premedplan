@@ -223,7 +223,7 @@ export default function GPACalculator() {
           <table className="w-full border-collapse">
             <thead>
               <tr>
-                {['School', 'Method', 'Your GPA', 'Min GPA', 'Competitive GPA'].map(h => (
+                {['School', 'Method', 'Your GPA', 'Min GPA', 'Accepted GPA'].map(h => (
                   <th
                     key={h}
                     className="px-4 py-[11px] text-[10px] font-bold uppercase tracking-[0.06em] text-[#6b7280] bg-[#f9fafb] border-b border-[#e5e7eb] text-left whitespace-nowrap"
