@@ -32,7 +32,7 @@ export const POLICY_CHANGES: PolicyChange[] = [
     schoolColor: '#B10D28',
     category: 'process',
     title: 'QARS lottery system replaces rank-based screening',
-    note: "Queen's replaced traditional GPA/MCAT/CASPer rank-based pre-interview screening with QARS (Queen's Applicant Review System). Applicants who meet all minimum thresholds (GPA, MCAT section mins, CASPer cutoff) are entered into a randomized lottery for MMI invitations — removing the advantage of marginal score differences above the cutoff.",
+    note: "Queen's replaced traditional GPA/MCAT/CASPer rank-based pre-interview screening with QARS (Queen's Applicant Review System). Applicants who meet all minimum thresholds (GPA, MCAT section mins, CASPer cutoff) are entered into a randomized lottery for MMI invitations, removing the advantage of marginal score differences above the cutoff.",
   },
   {
     id: 'western-mcat-2024',
@@ -69,7 +69,7 @@ export const POLICY_CHANGES: PolicyChange[] = [
     schoolColor: '#C9960C',
     category: 'process',
     title: 'Lincoln Alexander School of Medicine opens',
-    note: "TMU launched Ontario's newest MD program — the Lincoln Alexander School of Medicine — with a first cohort of 94 students. The school is located in Brampton and places strong emphasis on equity-deserving applicants and serving the Peel Region community. Notably, TMU requires neither the MCAT nor CASPer — assessment uses KIRA Talent and an MMI instead.",
+    note: "TMU launched Ontario's newest MD program, the Lincoln Alexander School of Medicine, with a first cohort of 94 students. The school is located in Brampton and places strong emphasis on equity-deserving applicants and serving the Peel Region community. Notably, TMU requires neither the MCAT nor CASPer; assessment uses KIRA Talent and an MMI instead.",
   },
   {
     id: 'mac-snapshot-duet-removed-2024',
@@ -92,10 +92,10 @@ export const POLICY_CHANGES: PolicyChange[] = [
     schoolAbbr: 'UofT',
     schoolColor: '#002A5C',
     category: 'gpa',
-    title: 'Weighted GPA (wGPA) removed — switch to cumulative GPA',
+    title: 'Weighted GPA (wGPA) removed: switch to cumulative GPA',
     from: 'Weighted GPA (wGPA)',
     to: 'Cumulative GPA (cGPA)',
-    note: "UofT removed its weighted GPA system starting in the 2022–23 cycle. Previously, applicants needed a full course load to avoid GPA penalties — lighter semesters were weighted down. All undergraduate course grades are now included equally in the cGPA, giving applicants flexibility in course load without GPA disadvantage.",
+    note: "UofT removed its weighted GPA system starting in the 2022–23 cycle. Previously, applicants needed a full course load to avoid GPA penalties; lighter semesters were weighted down. All undergraduate course grades are now included equally in the cGPA, giving applicants flexibility in course load without GPA disadvantage.",
   },
   {
     id: 'nosm-independence-2022',

@@ -100,7 +100,7 @@ export default function CostCalculator() {
     if (needsCasper && includeCasper) {
       rows.push({
         label: 'CASPer',
-        desc: 'Altus Suite test fee — one-time',
+        desc: 'Altus Suite test fee (one-time)',
         amount: CASPER_FEE,
       });
 
@@ -321,7 +321,7 @@ export default function CostCalculator() {
 
         <div className="px-[22px] py-[13px] border-t border-[#e5e7eb]">
           <p className="text-[11px] text-[#9ca3af] leading-[1.6]">
-            OMSAS fees reflect the 2025–26 cycle — verify current amounts at omsas.ca before applying.
+            OMSAS fees reflect the 2025–26 cycle. Verify current amounts at omsas.ca before applying.
             MCAT shown in CAD using an approximate exchange rate; actual cost varies with the USD/CAD rate.
             CASPer base fee ($85) covers unlimited program distributions. Snapshot and Duet are per-program add-ons required by McMaster.
           </p>
@@ -417,9 +417,9 @@ export default function CostCalculator() {
 
         <div className="px-[22px] py-[13px] border-t border-[#e5e7eb]">
           <p className="text-[11px] text-[#9ca3af] leading-[1.6]">
-            Prep costs are approximate — actual prices vary widely by provider and year.
+            Prep costs are approximate; actual prices vary widely by provider and year.
             Interview travel assumes one overnight stay within Ontario; adjust for your situation.
-            All figures are for planning purposes only — verify fees directly with each school and service provider.
+            All figures are for planning purposes only. Verify fees directly with each school and service provider.
           </p>
         </div>
       </div>

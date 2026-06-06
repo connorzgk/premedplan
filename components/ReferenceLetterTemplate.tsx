@@ -17,11 +17,11 @@ function generateEmail(f: EmailForm): string {
   const salutation = f.refereeTitle && f.refereeName
     ? `${f.refereeTitle} ${f.refereeName}`
     : f.refereeName || '[Referee Name]';
-  const knowing = f.howYouKnowThem || '[describe your relationship — e.g. "worked in your research lab during the 2024–25 academic year"]';
+  const knowing = f.howYouKnowThem || '[describe your relationship, e.g. "worked in your research lab during the 2024–25 academic year"]';
   const highlights = f.highlights || '[describe what experiences or qualities you hope they can speak to]';
   const deadline = f.deadline || '[application deadline date]';
 
-  return `Subject: Reference Letter Request — ${name} — Ontario Medical School Application
+  return `Subject: Reference Letter Request | ${name} | Ontario Medical School Application
 
 Dear ${salutation},
 
@@ -38,9 +38,9 @@ If you are able to support my application, I would be happy to provide you with 
   • Unofficial transcripts and course list
   • The OMSAS referee submission portal link and instructions
 
-Letters are submitted confidentially and directly through the OMSAS Electronic Matching System — I can send you a step-by-step guide once you confirm.
+Letters are submitted confidentially and directly through the OMSAS Electronic Matching System. I can send you a step-by-step guide once you confirm.
 
-Please don't hesitate to reach out if you have any questions. And if you are unable to write the letter at this time, I completely understand — just let me know and I will make other arrangements.
+Please don't hesitate to reach out if you have any questions. And if you are unable to write the letter at this time, I completely understand. Just let me know and I will make other arrangements.
 
 Thank you so much for your time and for everything you have done for me. I am truly grateful for your support.
 
@@ -163,9 +163,9 @@ export default function ReferenceLetterTemplate() {
               title: 'Requirements',
               points: [
                 'Exactly 3 reference letters required',
-                'Letters are fully confidential — you cannot view them',
+                'Letters are fully confidential (you cannot view them)',
                 'Individual schools may specify required referee types (academic, professional, personal)',
-                'Check each school\'s requirements — some prefer 2+ academic referees',
+                'Check each school\'s requirements; some prefer 2+ academic referees',
               ],
             },
             {
@@ -174,7 +174,7 @@ export default function ReferenceLetterTemplate() {
                 'Referees submit directly through the OMSAS EMS (Electronic Matching System)',
                 'You enter referee contact info in your OMSAS application',
                 'OMSAS sends referees an automatic invitation link',
-                'Letters must be received by the application deadline — confirm this with your referees early',
+                'Letters must be received by the application deadline. Confirm this with your referees early',
               ],
             },
             {
@@ -183,7 +183,7 @@ export default function ReferenceLetterTemplate() {
                 'Ask referees at least 2–3 months before the deadline',
                 'Send a follow-up 4–6 weeks before the deadline to confirm',
                 'Provide your CV, personal statement draft, and a note on key experiences',
-                'OMSAS applications typically open in July — aim to have referees confirmed by August',
+                'OMSAS applications typically open in July. Aim to have referees confirmed by August',
               ],
             },
           ].map(section => (
@@ -203,7 +203,7 @@ export default function ReferenceLetterTemplate() {
 
         <div className="px-[22px] py-[13px] border-t border-[#e5e7eb]">
           <p className="text-[11px] text-[#9ca3af] leading-[1.6]">
-            Requirements are for the OMSAS Ontario application cycle — verify current details at ouac.on.ca/omsas and with each school's admissions office before applying.
+            Requirements are for the OMSAS Ontario application cycle. Verify current details at ouac.on.ca/omsas and with each school's admissions office before applying.
           </p>
         </div>
       </div>

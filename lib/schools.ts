@@ -17,7 +17,7 @@ export const schools: School[] = [
     mcat: {
       min: '125 per section (one 124 allowed)',
       competitive: '515+ total',
-      note: 'MCAT used only as a pass/fail threshold — NOT assessed competitively in ranking. Scores from the past 5 years accepted. Must be written before application deadline.',
+      note: 'MCAT used only as a pass/fail threshold. NOT assessed competitively in ranking. Scores from the past 5 years accepted. Must be written before application deadline.',
     },
     prereqs: [
       'Minimum 3 years of full-time undergraduate study (eligible to apply fall of 3rd year if all requirements met)',
@@ -40,17 +40,17 @@ export const schools: School[] = [
     gpa: {
       min: '3.0',
       competitive: '3.92',
-      note: 'OMSAS scale. GPA accounts for 32% of pre-interview score. GPA is NOT rounded — exact decimal is used. Graduate bonus: +1% (Masters), +4% (PhD). Class of 2028 mean GPA was 3.92.',
+      note: 'OMSAS scale. GPA accounts for 32% of pre-interview score. GPA is NOT rounded; exact decimal is used. Graduate bonus: +1% (Masters), +4% (PhD). Class of 2028 mean GPA was 3.92.',
     },
     mcat: {
       min: 'CARS section: 123 minimum',
       competitive: 'CARS: 129',
-      note: 'CARS section ONLY is reviewed — all other MCAT sections are completely ignored. CARS is 32% of pre-interview score (equal to GPA and CASPer). Class of 2028 mean CARS was 129.',
+      note: 'CARS section ONLY is reviewed; all other MCAT sections are completely ignored. CARS is 32% of pre-interview score (equal to GPA and CASPer). Class of 2028 mean CARS was 129.',
     },
     prereqs: [
       'Minimum 3 years of undergraduate study (30 half-year credits / 15 FCEs); eligible to apply fall of 3rd year if requirements met',
       'No specific course prerequisites',
-      'No degree-type restriction — any undergraduate program accepted',
+      'No degree-type restriction; any undergraduate program accepted',
       'CASPer test required (32% of pre-interview score)',
     ],
     website: 'https://ugme.healthsci.mcmaster.ca/admissions/',
@@ -163,7 +163,7 @@ export const schools: School[] = [
       note: 'TMU does NOT require the MCAT or CASPer. Non-academic assessment uses KIRA Talent (asynchronous video/written) followed by an MMI.',
     },
     prereqs: [
-      'Completed undergraduate degree required (full degree — cannot apply in 2nd or 3rd year)',
+      'Completed undergraduate degree required (full degree; cannot apply in 2nd or 3rd year)',
       'No specific prerequisite courses required',
       'No preferred degree program',
       '3 short essay questions required',

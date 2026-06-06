@@ -286,8 +286,8 @@ export default function GPACalculator() {
             <span className="font-semibold text-[#166534]">green</span> = at or above competitive ·{' '}
             <span className="font-semibold text-[#854d0e]">amber</span> = above minimum, below competitive ·{' '}
             <span className="font-semibold text-[#dc2626]">red</span> = below minimum.{' '}
-            * Western requires 3.7 in at least 2 separate years — check per-year GPAs above.{' '}
-            These formulas are approximate prototypes — verify with each school&apos;s official admissions page.
+            * Western requires 3.7 in at least 2 separate years. Check per-year GPAs above.{' '}
+            These formulas are approximate prototypes. Verify with each school&apos;s official admissions page.
           </p>
         </div>
       </div>

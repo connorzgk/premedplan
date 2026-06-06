@@ -112,7 +112,7 @@ export default function ApplicationTimeline() {
       {/* Footer */}
       <div className="bg-white rounded-[14px] shadow-[0_1px_4px_rgba(0,0,0,0.07)] px-[22px] py-[14px] mb-7">
         <p className="text-[11px] text-[#9ca3af] leading-[1.65]">
-          Dates are approximate and based on historical OMSAS cycle patterns. Exact deadlines are published annually at ouac.on.ca/omsas — always verify before relying on these dates.
+          Dates are approximate and based on historical OMSAS cycle patterns. Exact deadlines are published annually at ouac.on.ca/omsas. Always verify before relying on these dates.
         </p>
       </div>
     </div>

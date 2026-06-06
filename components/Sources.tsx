@@ -1,30 +1,30 @@
 const sources = [
   {
-    label: 'UofT — Academic Requirements',
+    label: 'UofT: Academic Requirements',
     href: 'https://applymd.utoronto.ca/academic-requirements',
   },
   {
-    label: 'McMaster — Admissions',
+    label: 'McMaster: Admissions',
     href: 'https://ugme.healthsci.mcmaster.ca/admissions/',
   },
   {
-    label: 'Western Schulich — Requirements',
+    label: 'Western Schulich: Requirements',
     href: 'https://www.schulich.uwo.ca/med-dent-admissions/medicine/admission-requirements.html',
   },
   {
-    label: "Queen's — MD Admissions",
+    label: "Queen's: MD Admissions",
     href: 'https://meds.queensu.ca/academics/mdprogram/admissions',
   },
   {
-    label: 'uOttawa — Application Process',
+    label: 'uOttawa: Application Process',
     href: 'https://www.uottawa.ca/faculty-medicine/undergraduate/application-process',
   },
   {
-    label: 'TMU — MD Admission Requirements',
+    label: 'TMU: MD Admission Requirements',
     href: 'https://www.torontomu.ca/school-of-medicine/programs/md/md-admissions/before-you-apply/admission-requirements/',
   },
   {
-    label: 'NOSM U — MD Admissions',
+    label: 'NOSM U: MD Admissions',
     href: 'https://www.nosm.ca/nosm-university-admissions-learner-recruitment/ume-program-md-degree-admissions/',
   },
   {

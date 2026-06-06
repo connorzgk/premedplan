@@ -21,7 +21,7 @@ export default function Header() {
       </h1>
 
       <p className="text-[15px] opacity-[0.72] max-w-[480px] mx-auto mb-8 leading-[1.6]">
-        Admissions requirements for all 7 Ontario MD programs — GPA, MCAT, and course prerequisites.
+        Admissions requirements for all 7 Ontario MD programs: GPA, MCAT, and course prerequisites.
       </p>
 
       <div className="inline-flex bg-white/10 border border-white/[0.18] rounded-[12px] overflow-hidden flex-col min-[701px]:flex-row">
