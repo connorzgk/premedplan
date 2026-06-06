@@ -190,7 +190,7 @@ const SCHOOL_DEFS = [
     name: 'Western University',
     abbr: 'Schulich',
     color: '#4F2683',
-    method: 'Best 2 years: 3.7 minimum required in each year',
+    method: 'Best 2 years (min 5 FCEs/30cr each): 3.7 minimum required in each year',
     minGPA: '3.7*',
     competitiveGPA: '3.9',
     calc: (c: Course[]) => best2Years(c),

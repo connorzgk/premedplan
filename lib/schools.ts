@@ -67,7 +67,7 @@ export const schools: School[] = [
     gpa: {
       min: '3.7 in each of 2 undergrad years',
       competitive: '3.96 / 3.91',
-      note: 'OMSAS scale. The 3.7 minimum must be met in 2 separate individual undergraduate years (best 2 years taken). Thresholds are reviewed annually. Class of 2029 mean best 2 years were 3.96 and 3.91.',
+      note: 'OMSAS scale. The 3.7 minimum must be met in each of 2 separate undergraduate years (best 2 years taken). A qualifying year requires at least 5 FCEs (30 credit hours), of which at least 3 FCEs (18 credit hours) must be at or above the year level of study, and a maximum of 1 pass/fail FCE. Thresholds are reviewed annually. Class of 2029 mean best 2 years were 3.96 and 3.91.',
     },
     mcat: {
       min: '126 per section (125 for pathway)',
