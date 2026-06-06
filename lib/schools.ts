@@ -12,7 +12,7 @@ export const schools: School[] = [
     gpa: {
       min: '3.6 (UG) · 3.3 (Grad)',
       competitive: '3.94',
-      note: 'OMSAS scale. Cumulative GPA (all years) is used. Graduate applicants have a lower minimum threshold of 3.3. Mean accepted GPA was 3.94 in the 2025 cycle.',
+      note: 'OMSAS scale. Cumulative GPA (all years) is used. Only courses taken on a full-time basis count: fall/winter terms with 3.0+ FCEs and summer terms with 1.5+ FCEs. Winter 2020 is excluded. Graduate applicants have a lower minimum threshold of 3.3. Mean accepted GPA was 3.94 in the 2025 cycle.',
     },
     mcat: {
       min: '125 per section (one 124 allowed)',
