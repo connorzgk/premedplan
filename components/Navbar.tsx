@@ -81,9 +81,11 @@ export default function Navbar({ activeTab, onTabChange }: NavbarProps) {
       </nav>
 
       {/* Mobile dropdown */}
-      {isOpen && (
-        <div className="lg:hidden bg-[#0f1f3d] border-t border-white/10">
-          {TAB_LABELS.map((label) => (
+      <div
+        className="lg:hidden bg-[#0f1f3d] border-t border-white/10 overflow-hidden transition-all duration-300 ease-in-out"
+        style={{ maxHeight: isOpen ? `${TAB_LABELS.length * 52}px` : '0px', opacity: isOpen ? 1 : 0 }}
+      >
+        {TAB_LABELS.map((label) => (
             <button
               key={label}
               onClick={() => { onTabChange(label); setIsOpen(false); }}
@@ -98,7 +100,6 @@ export default function Navbar({ activeTab, onTabChange }: NavbarProps) {
             </button>
           ))}
         </div>
-      )}
     </div>
   );
 }
