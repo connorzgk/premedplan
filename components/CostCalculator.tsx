@@ -323,7 +323,6 @@ export default function CostCalculator() {
           <p className="text-[11px] text-[#9ca3af] leading-[1.6]">
             OMSAS fees reflect the 2025–26 cycle. Verify current amounts at omsas.ca before applying.
             MCAT shown in CAD using an approximate exchange rate; actual cost varies with the USD/CAD rate.
-            CASPer base fee ($85) covers unlimited program distributions. Snapshot and Duet are per-program add-ons required by McMaster.
           </p>
         </div>
       </div>
