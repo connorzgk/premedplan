@@ -24,17 +24,6 @@ export const CATEGORY_META: Record<ChangeCategory, { label: string; bg: string; 
 // Newest entries at the top. Add new entries here as policies change.
 export const POLICY_CHANGES: PolicyChange[] = [
   {
-    id: 'queens-qars-2024',
-    cycleYear: '2024–25',
-    schoolId: 'queens',
-    schoolName: "Queen's University",
-    schoolAbbr: "Queen's",
-    schoolColor: '#B10D28',
-    category: 'process',
-    title: 'QARS lottery system replaces rank-based screening',
-    note: "Queen's replaced traditional GPA/MCAT/CASPer rank-based pre-interview screening with QARS (Queen's Applicant Review System). Applicants who meet all minimum thresholds (GPA, MCAT section mins, CASPer cutoff) are entered into a randomized lottery for MMI invitations, removing the advantage of marginal score differences above the cutoff.",
-  },
-  {
     id: 'western-mcat-2025',
     cycleYear: '2025–26',
     schoolId: 'western',
@@ -46,6 +35,17 @@ export const POLICY_CHANGES: PolicyChange[] = [
     from: '127 C/P · 127 CARS · 127 B/B · 126 P/S',
     to: '126 C/P · 126 CARS · 126 B/B · 126 P/S',
     note: "Western reviews and resets MCAT section minimums each cycle based on the competitiveness of the applicant pool. For 2025–26, all four section minimums are set at 126.",
+  },
+  {
+    id: 'queens-qars-2024',
+    cycleYear: '2024–25',
+    schoolId: 'queens',
+    schoolName: "Queen's University",
+    schoolAbbr: "Queen's",
+    schoolColor: '#B10D28',
+    category: 'process',
+    title: 'QARS lottery system replaces rank-based screening',
+    note: "Queen's replaced traditional GPA/MCAT/CASPer rank-based pre-interview screening with QARS (Queen's Applicant Review System). Applicants who meet all minimum thresholds (GPA, MCAT section mins, CASPer cutoff) are entered into a randomized lottery for MMI invitations, removing the advantage of marginal score differences above the cutoff.",
   },
   {
     id: 'tmu-opens-2024',
