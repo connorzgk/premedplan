@@ -151,15 +151,20 @@ function best3Years(courses: Course[]): CalcResult {
   };
 }
 
-// Western drops the single lowest-graded course from a year with 5.0+ FCEs
+// Western drops lowest-graded courses until the year total reaches 5.0 FCEs
 function trimWesternYear(yearCourses: Course[]): Course[] {
   const valid = yearCourses.filter(isValid);
   const totalCredits = valid.reduce((s, c) => s + parseFloat(c.credits), 0);
   if (totalCredits <= 5.0) return valid;
-  // Drop the single course with the lowest grade points
   const sorted = [...valid].sort((a, b) => getGradePoints(a)! - getGradePoints(b)!);
-  const [, ...rest] = sorted;
-  return rest;
+  let remaining = totalCredits;
+  let dropCount = 0;
+  for (const c of sorted) {
+    if (remaining <= 5.0) break;
+    remaining -= parseFloat(c.credits);
+    dropCount++;
+  }
+  return sorted.slice(dropCount);
 }
 
 function best2Years(courses: Course[]): CalcResult {
