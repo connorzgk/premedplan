@@ -97,17 +97,4 @@ export const POLICY_CHANGES: PolicyChange[] = [
     to: 'Independent: NOSM University',
     note: "Following Laurentian University's insolvency proceedings, NOSM separated and was granted independent university status by the Ontario government in 2022. It now operates as NOSM University and issues its own MD degrees.",
   },
-  {
-    id: 'mac-grad-bonus-2022',
-    cycleYear: '2022–23',
-    schoolId: 'mcmaster',
-    schoolName: 'McMaster University',
-    schoolAbbr: 'Mac',
-    schoolColor: '#7A003C',
-    category: 'gpa',
-    title: 'Graduate applicant GPA bonus formalized',
-    from: 'No formal bonus',
-    to: '1–4% GPA bonus for completed graduate degrees',
-    note: "McMaster formalized a graduate degree bonus applied to the GPA component of the pre-interview score: +1% for a completed Master's degree, +4% for a completed PhD. The degree must be conferred by the application cycle deadline to qualify.",
-  },
 ];
