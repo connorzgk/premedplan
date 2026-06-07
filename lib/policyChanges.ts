@@ -61,8 +61,8 @@ export const POLICY_CHANGES: PolicyChange[] = [
     note: "UofT introduced a separate, lower GPA minimum (3.3 on OMSAS scale) for applicants who have completed graduate-level study. The standard minimum for undergraduate applicants remains 3.6.",
   },
   {
-    id: 'tmu-opens-2023',
-    cycleYear: '2023–24',
+    id: 'tmu-opens-2024',
+    cycleYear: '2024–25',
     schoolId: 'tmu',
     schoolName: 'Toronto Metropolitan University',
     schoolAbbr: 'TMU',
