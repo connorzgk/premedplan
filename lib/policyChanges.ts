@@ -68,8 +68,8 @@ export const POLICY_CHANGES: PolicyChange[] = [
     schoolAbbr: 'TMU',
     schoolColor: '#C9960C',
     category: 'process',
-    title: 'Lincoln Alexander School of Medicine opens',
-    note: "TMU launched Ontario's newest MD program, the Lincoln Alexander School of Medicine, with a first cohort of 94 students. The school is located in Brampton and places strong emphasis on equity-deserving applicants and serving the Peel Region community. Notably, TMU requires neither the MCAT nor CASPer; assessment uses KIRA Talent and an MMI instead.",
+    title: 'TMU School of Medicine opens',
+    note: "TMU launched Ontario's newest MD program, the TMU School of Medicine, with a first cohort of 94 students. The school is located in Brampton and places strong emphasis on equity-deserving applicants and serving the Peel Region community. Notably, TMU requires neither the MCAT nor CASPer; assessment uses KIRA Talent and an MMI instead.",
   },
   {
     id: 'mac-snapshot-duet-removed-2024',

@@ -151,24 +151,15 @@ function best3Years(courses: Course[]): CalcResult {
   };
 }
 
-// Western drops the lowest-graded courses in a year until total FCEs = 5.0
-function trimToFiveFCE(yearCourses: Course[]): Course[] {
+// Western drops the single lowest-graded course from a year with 5.0+ FCEs
+function trimWesternYear(yearCourses: Course[]): Course[] {
   const valid = yearCourses.filter(isValid);
   const totalCredits = valid.reduce((s, c) => s + parseFloat(c.credits), 0);
   if (totalCredits <= 5.0) return valid;
-  // Sort ascending by grade points so we drop lowest first
+  // Drop the single course with the lowest grade points
   const sorted = [...valid].sort((a, b) => getGradePoints(a)! - getGradePoints(b)!);
-  let excess = totalCredits - 5.0;
-  const dropped = new Set<string>();
-  for (const c of sorted) {
-    if (excess <= 0) break;
-    const cr = parseFloat(c.credits);
-    if (cr <= excess) {
-      dropped.add(c.id);
-      excess -= cr;
-    }
-  }
-  return valid.filter(c => !dropped.has(c.id));
+  const [, ...rest] = sorted;
+  return rest;
 }
 
 function best2Years(courses: Course[]): CalcResult {
@@ -182,7 +173,7 @@ function best2Years(courses: Course[]): CalcResult {
   // For each qualifying year, trim to best 5.0 FCEs
   const coursesByYear: Record<number, Course[]> = {};
   for (const ys of qualifying) {
-    coursesByYear[ys.year] = trimToFiveFCE(courses.filter(c => c.year === ys.year));
+    coursesByYear[ys.year] = trimWesternYear(courses.filter(c => c.year === ys.year));
   }
   // Recompute year GPAs after trimming
   const qualifyingWithTrimmedGPA = qualifying.map(ys => ({
