@@ -24,8 +24,8 @@ export const CATEGORY_META: Record<ChangeCategory, { label: string; bg: string; 
 // Newest entries at the top. Add new entries here as policies change.
 export const POLICY_CHANGES: PolicyChange[] = [
   {
-    id: 'queens-qars-2025',
-    cycleYear: '2025–26',
+    id: 'queens-qars-2024',
+    cycleYear: '2024–25',
     schoolId: 'queens',
     schoolName: "Queen's University",
     schoolAbbr: "Queen's",
@@ -70,19 +70,6 @@ export const POLICY_CHANGES: PolicyChange[] = [
     category: 'process',
     title: 'TMU School of Medicine opens',
     note: "TMU launched Ontario's newest MD program, the TMU School of Medicine, with a first cohort of 94 students. The school is located in Brampton and places strong emphasis on equity-deserving applicants and serving the Peel Region community. Notably, TMU requires neither the MCAT nor CASPer; assessment uses KIRA Talent and an MMI instead.",
-  },
-  {
-    id: 'mac-snapshot-duet-removed-2024',
-    cycleYear: '2024–25',
-    schoolId: 'mcmaster',
-    schoolName: 'McMaster University',
-    schoolAbbr: 'Mac',
-    schoolColor: '#7A003C',
-    category: 'casper',
-    title: 'Snapshot and Duet no longer required',
-    from: 'CASPer + Snapshot + Duet',
-    to: 'CASPer only',
-    note: "McMaster dropped the Snapshot and Duet components of the Altus Suite. Only the core CASPer situational judgement test is now required. This removes the associated per-program distribution fees for those two assessments.",
   },
   {
     id: 'uoft-wgpa-removed-2022',
