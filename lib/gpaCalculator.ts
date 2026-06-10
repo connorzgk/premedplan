@@ -267,7 +267,7 @@ const SCHOOL_DEFS = [
     name: 'University of Ottawa',
     abbr: 'uOttawa',
     color: '#8F001A',
-    method: 'Most recent 3 years: highest year numbers used',
+    method: 'Most recent 3 years',
     minGPA: '3.5',
     competitiveGPA: '3.93',
     calc: (c: Course[]) => lastNYears(c, 3),
