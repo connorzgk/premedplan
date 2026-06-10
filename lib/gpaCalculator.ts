@@ -137,6 +137,7 @@ function uoftGPA(courses: Course[]): CalcResult {
   };
 }
 
+
 function best3Years(courses: Course[]): CalcResult {
   const summaries = calcYearSummaries(courses);
   if (summaries.length <= 3) {

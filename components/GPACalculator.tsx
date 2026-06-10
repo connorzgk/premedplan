@@ -260,16 +260,9 @@ export default function GPACalculator() {
                       {result.method}
                     </td>
                     <td className="px-4 py-[13px] align-middle">
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <span className="text-[15px] font-bold" style={{ color: gpaColor }}>
-                          {g !== null ? g.toFixed(3) : '—'}
-                        </span>
-                        {result.droppedYears.length > 0 && (
-                          <span className="text-[11px] text-[#9ca3af]">
-                            (Year {result.droppedYears.join(', ')} dropped)
-                          </span>
-                        )}
-                      </div>
+                      <span className="text-[15px] font-bold" style={{ color: gpaColor }}>
+                        {g !== null ? g.toFixed(3) : '—'}
+                      </span>
                     </td>
                     <td className="px-4 py-[13px] text-[13px] align-middle">{result.minGPA}</td>
                     <td className="px-4 py-[13px] text-[13px] align-middle">{result.competitiveGPA}+</td>
